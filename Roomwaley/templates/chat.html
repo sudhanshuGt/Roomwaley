@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chat</title>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Acme|Alfa+Slab+One|Changa|Chewy|Lobster|Merienda+One|Sigmar+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alatsi|Lexend+Deca|Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
+</head>
+<style>
+
+         .navbar { background: #000365      ! important;
+                   box-shadow: 0 2px 2px -2px rgba(0,0,0,.2) ! important;
+                   padding-bottom: 4px ! important;
+                    }
+
+         .navbar-brand a {
+                              color: #fff ! important;
+                              font-family: Sigmar ! important;
+                              font-size: 20px ! important;
+                              display: inherit ! important;
+                              text-decoration: none;
+                              }
+         .form-control {
+                         border: 2px solid #fff  ! important;
+                         border-radius: 0px ! important;
+                         background: #000365 ;
+                         }
+
+         .btn { padding-bottom: 9px ! important;   border-radius: 0px  ! important; border: 2px solid #fff ! important; background: none; }
+
+        .form-control:focus, .form-control:active  {
+                                                        outline: none !important;
+                                                        box-shadow: none;
+                                                        border: 2px solid #BB8FCE  ! important;
+                                                        background: #fff! important;
+                                                    }
+
+       .btn:hover { background: #1448C0 ! important ; }
+        .btn:focus, .btn:active {
+                                outline: none !important;
+                                box-shadow: none ! important;
+                                border: 1px solid #1448C0  ! important;
+                               }
+        .avatar {
+                     vertical-align: middle;
+                     width: 45px;
+                     height: 45px;
+                     border-radius: 50%;
+                 }
+        .avatar_2 {
+                     vertical-align: middle;
+                     width: 35px;
+                     height: 35px;
+                     border-radius: 50%;
+                 }
+        .dropdown {
+                 position: relative;
+                 display: inline-block;
+                }
+        .dropdown-menu {
+                       display: none;
+                       float: left ! important;
+                       background-color: #ffffff;
+                       border: none;
+                       min-height: 360px ! important;
+                       min-width: 300px;
+                       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                       z-index: 1;
+                    }
+          .User_avt { background: #020272  ; }
+        .User_avt img { width: 70px; height: 70px ;
+                        margin-left: 1rem;
+                        margin-right: auto;
+                      }
+        .User_avt span { color: #fff ;
+                         font-size: 20px;
+                         font-family: cursive;
+                         }
+        .User_O { margin-left: 0px ! important; }
+        .User_O ul li { list-style: none;
+                          margin-left: 0px ! important;
+                          border-bottom: 1px solid #ccc;
+                      }
+        .User_O ul li:hover { background: #ccc; }
+        .User_O ul li a { text-decoration: none ! important;
+                          font-size : 20px;
+                          color: #555;
+
+                           margin-left: 2rem ! important;
+                        }
+        .avatar_3 {
+                     vertical-align: middle;
+                     width: 150px;
+                     height: 150px;
+                     border-radius: 50%;
+                 }
+
+
+        .postBtn { font-family: 'Lexend Deca', sans-serif;}
+        .col-lg-3 .editProf:hover { background: #ccc ! important; }
+         .ChatBox:hover { background-color: #ccc ! important; }
+
+    .container{max-width:1300px; margin:auto;}
+img{ max-width:100%;}
+.inbox_people {
+  background: #fff none repeat scroll 0 0;
+  float: left;
+  overflow: hidden;
+  width: 40%; border-right:1px solid blue;
+}
+.inbox_msg {
+  border: 2px solid #5368EC;
+  clear: both;
+  overflow: hidden;
+}
+.top_spac{ margin: 20px 0 0;}
+
+
+.recent_heading {float: left; width:40%;}
+.srch_bar {
+  display: inline-block;
+  text-align: right;
+  width: 60%; padding:
+}
+.headind_srch{ padding:10px 29px 10px 20px; overflow:hidden; }
+
+.recent_heading h4 {
+  color: #fff;
+  font-size: 21px;
+  margin: auto;
+}
+.srch_bar input{ border:1px solid #fff; color: #fff ! important; border-width:1px 1px 1px 1px; width:80%; padding:2px 0 4px 6px; background: none ;}
+.srch_bar .input-group-addon button {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  padding: 0;
+  color: #fff;
+  font-size: 18px;
+}
+.srch_bar input:focus { background: #fff ; }
+.srch_bar .input-group-addon { margin: 0 0 0 -27px;}
+
+.chat_ib h5{ font-size:15px; color:#464646; margin:0 0 8px 0;}
+.chat_ib h5 span{ font-size:13px; float:right;}
+.chat_ib p{ font-size:14px; color:#989898; margin:auto}
+.chat_img {
+  float: left;
+  width: 11%;
+}
+.chat_ib {
+  float: left;
+  padding: 0 0 0 15px;
+  width: 88%;
+}
+
+.chat_people{ overflow:hidden; clear:both;}
+.chat_list {
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 18px 16px 10px;
+}
+.inbox_chat { height: 550px; overflow-y: scroll;}
+.chatOption .btn:hover { background: #ccc ! important ; }
+
+
+.incoming_msg_img {
+  display: inline-block;
+  width: 6%;
+}
+.received_msg {
+  display: inline-block;
+  padding: 0 0 0 10px;
+  vertical-align: top;
+  width: 92%;
+ }
+ .received_withd_msg p {
+  background: #ebebeb none repeat scroll 0 0;
+  border-radius: 3px;
+  color: #646464;
+  font-size: 14px;
+  margin: 0;
+  padding: 5px 10px 5px 12px;
+  width: 100%;
+}
+.time_date {
+  color: #747474;
+  display: block;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+.received_withd_msg { width: 57%;}
+.mesgs {
+  float: left;
+  padding: 30px 15px 0 25px;
+  width: 60%;
+}
+
+ .sent_msg p {
+  background: #05728f none repeat scroll 0 0;
+  border-radius: 3px;
+  font-size: 14px;
+  margin: 0; color:#fff;
+  padding: 5px 10px 5px 12px;
+  width:100%;
+}
+.outgoing_msg{ overflow:hidden; margin:26px 0 26px;}
+.sent_msg {
+  float: right;
+  width: 46%;
+}
+.input_msg_write input {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  color: #4c4c4c;
+  font-size: 15px;
+  min-height: 48px;
+  width: 100%;
+}
+
+.type_msg {border-top: 1px solid #c4c4c4;position: relative;}
+.msg_send_btn {
+  background: #05728f none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  font-size: 17px;
+  height: 33px;
+  position: absolute;
+  right: 0;
+  top: 11px;
+  width: 33px;
+}
+.messaging { padding: 0 0 50px 0;}
+.msg_history {
+  height: 516px;
+  overflow-y: auto;
+}
+</style>
+<body>
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="logo">
+      <a class="navbar-brand" style="color: #fff" href="{% url 'home' %}">Roomwaley !</a>
+  </div>
+    <div class="form-row col-lg-8  mr-0">
+            <div class="col-lg-4 px-2">
+                <input class="form-control py-4" type="text" placeholder="location">
+            </div>
+        <div class="col-lg-6 ">
+                     <input class="form-control py-4" type="text" placeholder="Find Rooms, apartment, flate and more..">
+            </div>
+        <div class="col-lg-2 pr-0 mr-0">
+             <button type="button" class="btn btn-primary">
+               <svg class="bi bi-search" width="2em" height="2em" viewBox="0 0 16 16" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"/>
+  <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"/>
+</svg>
+             </button>
+        </div>
+        </div>
+<ul class="navbar-nav mr-auto">
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="dropdown notification mb-1 mr-4">
+         <button class="notification_btn" data-toggle="dropdown" style="border-style: none; background: none">
+             <span>
+                    <svg class="bi bi-bell" width="2em" height="2em" viewBox="0 0 16 16" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+  <path d="M8 16a2 2 0 002-2H6a2 2 0 002 2z"/>
+  <path fill-rule="evenodd" d="M8 1.918l-.797.161A4.002 4.002 0 004 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 00-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 111.99 0A5.002 5.002 0 0113 6c0 .88.32 4.2 1.22 6z" clip-rule="evenodd"/>
+</svg>
+                </span>
+          </button>
+         <div class="dropdown-menu dropdown-menu-right rounded-0 pt-0 mt-3" style="border: 1px solid blue">
+
+                <header class="py-2" style="background: blue; text-align: center;width: 100% ! important; color: #fff; font-family: monospace; font-weight: 555; fotn-size: 20px">No new notification</header>
+
+
+         </div>
+    </div>
+    <div class="dropdown profile_avtr mb-2 mx-2 mt-1">
+          <button class="profile_btn" data-toggle="dropdown" style="border-style: none; background: none">
+                  <span>
+           <svg class="bi bi-person-square" width="2em" height="2em" viewBox="0 0 16 16" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M14 1H2a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V2a1 1 0 00-1-1zM2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2z" clip-rule="evenodd"/>
+  <path fill-rule="evenodd" d="M2 15v-1c0-1 1-4 6-4s6 3 6 4v1H2zm6-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+</svg>
+              </span>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right rounded-0 pt-0 mt-3">
+             <div class="User_avt py-3">
+                  <img src="{% static 'account_avt.svg' %}">
+                  <span class="UserNam">Sudhanshu Tiwari</span>
+              </div>
+              <div class="User_O px-0 mx-0">
+                  <ul class="px-0 mx-0  pb-0">
+                      <li class="py-3"><span class="ml-4"><svg class="bi bi-pencil-square" width="2em" height="2em" viewBox="0 0 16 16" fill="#000" xmlns="http://www.w3.org/2000/svg">
+  <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
+</svg></span><a href="{% url 'profile' %}">View & Edit Profile</a></li>
+                      <li class="py-3"><span class="ml-4"><svg class="bi bi-phone" width="2em" height="2em" viewBox="0 0 16 16" fill="#000" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M11 1H5a1 1 0 00-1 1v12a1 1 0 001 1h6a1 1 0 001-1V2a1 1 0 00-1-1zM5 0a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V2a2 2 0 00-2-2H5z" clip-rule="evenodd"/>
+  <path fill-rule="evenodd" d="M8 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+</svg></span><a href="#">Manage Your Ads</a></li>
+                      <li class="py-3"><span class="ml-4"><svg class="bi bi-info-square" width="2em" height="2em" viewBox="0 0 16 16" fill="#000" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M14 1H2a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V2a1 1 0 00-1-1zM2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2z" clip-rule="evenodd"/>
+  <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+  <circle cx="8" cy="4.5" r="1"/>
+</svg></span><a href="#">Help</a></li>
+                      <li class="py-3" style="border: none"><span class="ml-4"><svg class="bi bi-box-arrow-right" width="2em" height="2em" viewBox="0 0 16 16" fill="#000" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M11.646 11.354a.5.5 0 010-.708L14.293 8l-2.647-2.646a.5.5 0 01.708-.708l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708 0z" clip-rule="evenodd"/>
+  <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h9a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+  <path fill-rule="evenodd" d="M2 13.5A1.5 1.5 0 01.5 12V4A1.5 1.5 0 012 2.5h7A1.5 1.5 0 0110.5 4v1.5a.5.5 0 01-1 0V4a.5.5 0 00-.5-.5H2a.5.5 0 00-.5.5v8a.5.5 0 00.5.5h7a.5.5 0 00.5-.5v-1.5a.5.5 0 011 0V12A1.5 1.5 0 019 13.5H2z" clip-rule="evenodd"/>
+</svg></span><a href="#">Log Out</a></li>
+                  </ul>
+              </div>
+             </div>
+    </div>
+  </div>
+</ul>
+<div class="postButton mr-4">
+    <button type="button" class="btn btn-primary btn-lg postBtn" onclick="javascript:clicktogo(this);">
+      <i class="fa fa-camera-retro pr-2" style="font-size: 25px ; color: #fff"></i>  Post
+    </button>
+</div>
+</nav>
+
+<br>
+<br>
+<br>
+<div class="container">
+<div class="messaging">
+      <div class="inbox_msg">
+        <div class="inbox_people">
+          <div class="headind_srch" style="background: #5368EC;">
+            <div class="recent_heading" >
+              <h4>Messages</h4>
+            </div>
+
+          </div>
+          <div class="chatOption">
+            <header class="row mx-5">
+              <button class="btn  mt-2" style="background: none; border: 1px solid #555 ! important; font-weight: 666; color: #555">All</button>
+               <button class="btn mt-2 mx-2" style="background: none; border: 1px solid #555 ! important; font-weight: 666; color: #555">Unread Messages</button>
+             <button class="btn mt-2" style="background: none; border: 1px solid #555 ! important; font-weight: 666; color: #555">Archived</button>
+
+            </header>
+          </div>
+          <br>
+          <div class="inbox_chat" style="border-top: 1px solid #5368EC">
+            <div class="chat_list active_chat">
+              <div class="chat_people">
+                <div class="chat_img"> <img src="{% static 'profile_icon.png' %}" alt="sunil"> </div>
+                <div class="chat_ib">
+                  <h5>Gabbar Singh<span class="chat_date">feb 25</span></h5>
+                  <p>ye room mujhe dede thakur</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="chat_list">
+              <div class="chat_people">
+                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                <div class="chat_ib">
+                  <h5>paragliding guy<span class="chat_date">feb 20</span></h5>
+                  <p>Sau do sau leke room dila de bhai...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mesgs">
+          <div class="msg_history">
+            <div class="container Defaultmessage col-lg-12 col-md-12 col-sm-12">
+                 <img src="{% static 'chats.svg' %}"  style="width: 20rem; height: 20rem; margin-left: 10rem">
+            </div>
+            <h1 class="ConvStart" style="font-size: 20px; color: #555; margin-left: 10rem">tap on a chat to Start Your Conversation</h1>
+          </div>
+          <div class="type_msg">
+            <div class="input_msg_write">
+              <input type="text" class="write_msg" placeholder="Type a message" />
+              <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div></div>
+</body>
+<script>
+function clicktogo(target) { // Target refers to the clicked element
+    location.href='{% url 'post' %}';
+};
+</script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</html>
